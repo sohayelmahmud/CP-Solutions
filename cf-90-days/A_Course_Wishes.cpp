@@ -64,34 +64,26 @@ const ll INF = 1e18;
 // ############ ---- Main Solve Function ---- ############
 void solve(int testNo)
 {
-    insr(s);
-    int len = len(s);
-    ll ans = INF;
-
-    for (ll i = len - 1; i >= 0; i--)
+    inin2(n, k);
+    varr(a, k);
+    vector<pii> v(n);
+    for (ll i = 0; i < n; i++)
     {
-        if (s[i] == '0')
+        inin(x);
+        v[i] = {x, i};
+    }
+    sort(rall(v));
+    vll ops;
+    for (ll i = 0; i < n; i++)
+    {
+        for (; v[i].first < k + 1; v[i].first++)
         {
-            for (ll j = i - 1; j >= 0; j--)
-            {
-                if (s[j] == '0' || s[j] == '5')
-                {
-                    ans = min(ans, (len - j - 2));
-                }
-            }
-        }
-        else if (s[i] == '5')
-        {
-            for (ll j = i - 1; j >= 0; j--)
-            {
-                if (s[j] == '2' || s[j] == '7')
-                {
-                    ans = min(ans, (len - j - 2));
-                }
-            }
+            ops.push_back(v[i].second);
         }
     }
-    cout << ans;
+    cout << len(ops) << endl;
+    for (auto &x : ops)
+        cout << x + 1 << " ";
 }
 
 void solve2(int testNo)
