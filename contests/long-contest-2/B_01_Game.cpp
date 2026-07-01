@@ -79,7 +79,21 @@ void solve(int testNo)
 
 void solve2(int testNo)
 {
-    // cout << "Case #" << testNo << ": ";
+
+// solved twice
+    insr(s);
+    ll cnt0 = 0, cnt1 = 0;
+    f0(i, len(s))
+    {
+        if (s[i] == '0')
+            cnt0++;
+        else
+            cnt1++;
+    }
+    if (min(cnt0, cnt1) % 2 == 0)
+        cout << "NET";
+    else
+        cout << "DA";
 }
 
 void solve3(int testNo)
