@@ -73,60 +73,25 @@ const ll INF = 1e18;
 // ############ ---- Main Solve Function ---- ############
 void solve(int testNo)
 {
-    inin(n);
-    cout << __builtin_popcountll(n);
+    inin2(n, k);
+
+    if (k == 1)
+    {
+        cout << n;
+        return;
+    }
+    ll bit_len = 64 - __builtin_clzll(n);
+    cout << (1ULL << bit_len) - 1;
 }
 
 void solve2(int testNo)
 {
-    inin(n);
-    ll cnt = 0;
-    while (n >= 1)
-    {
-        if (n % 2 == 1)
-            cnt++;
-        n /= 2;
-    }
-    cout << cnt;
+    // cout << "Case #" << testNo << ": ";
 }
 
 void solve3(int testNo)
 {
-    inin(n);
-    ll cnt = 0;
-    for (ll i = 0; i < 62; i++)
-    {
-        if ((n & (1LL << i)) != 0)
-        {
-            cnt++;
-        }
-    }
-    cout << cnt;
-}
-
-void solve4(int testNo)
-{
-    inin(n);
-    ll cnt = 0;
-    while (n > 0)
-    {
-        n = n & (n - 1);
-        cnt++;
-    }
-    cout << cnt;
-}
-
-void solve5(int testNo)
-{
-    inin(n);
-    string s = bitset<64>(n).to_string();
-    ll cnt = 0;
-    for (char c : s)
-    {
-        if (c == '1')
-            cnt++;
-    }
-    cout << cnt;
+    // cout << "Case #" << testNo << ": ";
 }
 
 int main()

@@ -73,60 +73,43 @@ const ll INF = 1e18;
 // ############ ---- Main Solve Function ---- ############
 void solve(int testNo)
 {
-    inin(n);
-    cout << __builtin_popcountll(n);
-}
+    ll n, l, r, x;
+    invr(n, l, r, x);
+    varr(a, n);
 
-void solve2(int testNo)
-{
-    inin(n);
     ll cnt = 0;
-    while (n >= 1)
+    for (ll mask = 0; mask < (1LL << n); mask++)
     {
-        if (n % 2 == 1)
-            cnt++;
-        n /= 2;
-    }
-    cout << cnt;
-}
-
-void solve3(int testNo)
-{
-    inin(n);
-    ll cnt = 0;
-    for (ll i = 0; i < 62; i++)
-    {
-        if ((n & (1LL << i)) != 0)
+        if (__builtin_popcountll(mask) >= 2)
         {
-            cnt++;
+            ll sum = 0;
+            ll mx = -INF, mn = INF;
+            for (ll i = 0; i < n; i++)
+            {
+                if (mask & (1LL << i))
+                {
+                    sum += a[i];
+                    mx = max(mx, a[i]);
+                    mn = min(mn, a[i]);
+                }
+            }
+            if ((sum >= l && sum <= r) && (mx - mn) >= x)
+            {
+                cnt++;
+            }
         }
     }
     cout << cnt;
 }
 
-void solve4(int testNo)
+void solve2(int testNo)
 {
-    inin(n);
-    ll cnt = 0;
-    while (n > 0)
-    {
-        n = n & (n - 1);
-        cnt++;
-    }
-    cout << cnt;
+    // cout << "Case #" << testNo << ": ";
 }
 
-void solve5(int testNo)
+void solve3(int testNo)
 {
-    inin(n);
-    string s = bitset<64>(n).to_string();
-    ll cnt = 0;
-    for (char c : s)
-    {
-        if (c == '1')
-            cnt++;
-    }
-    cout << cnt;
+    // cout << "Case #" << testNo << ": ";
 }
 
 int main()
