@@ -1,4 +1,3 @@
-// g++ Triple_Xor.cpp -o Triple_Xor && ./Triple_Xor < input.txt
 #include <bits/stdc++.h>
 using namespace std;
 // clang-format off
