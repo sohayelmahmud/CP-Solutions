@@ -74,29 +74,13 @@ const ll INF = 1e18;
 void solve(int testNo)
 {
     inin(n);
-    vll p(n * 2, 0);
-    f1(i, n)
+    if (n & 1)
     {
-        cin >> p[i];
+        cout << 0;
     }
-    ll rem = n + 1;
-    f0(i, n - 1)
+    else
     {
-        f0(j, n)
-        {
-            inin(x);
-            if (j == n - 1)
-            {
-                p[rem] = x;
-                rem++;
-            }
-        }
-    }
-    p[0] = (((2 * n) * ((2 * n) + 1)) / 2) - sum_vec(p);
-
-    for (auto x : p)
-    {
-        cout << x << " ";
+        cout << (ll)(pow(2, (n / 2)));
     }
 }
 
@@ -117,7 +101,7 @@ int main()
 
     int t = 1;
 
-    cin >> t;
+    // cin >> t;
     for (int testNo = 1; testNo <= t; testNo++)
     {
         solve(testNo);

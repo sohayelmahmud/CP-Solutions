@@ -73,31 +73,18 @@ const ll INF = 1e18;
 // ############ ---- Main Solve Function ---- ############
 void solve(int testNo)
 {
-    inin(n);
-    vll p(n * 2, 0);
-    f1(i, n)
-    {
-        cin >> p[i];
-    }
-    ll rem = n + 1;
-    f0(i, n - 1)
-    {
-        f0(j, n)
-        {
-            inin(x);
-            if (j == n - 1)
-            {
-                p[rem] = x;
-                rem++;
-            }
-        }
-    }
-    p[0] = (((2 * n) * ((2 * n) + 1)) / 2) - sum_vec(p);
-
-    for (auto x : p)
-    {
-        cout << x << " ";
-    }
+    ll x, y, k;
+    invr(x, y, k);
+    // for coal, i need k*y sticks,
+    // again for stick, i need k stick
+    // so i need k*y+k sticks
+    // in every trade i gain x-1 sticks
+    // total sticks need k*y+k-1
+    // it'll ceill of (k*y+k-1)/(x-1)
+    ll trade1 = (k * y + k + x - 3) / (x - 1);
+    // so now i just need k trade to gain k coal as i have enough sticks to trade............. dhichkawwww
+    // time: O(1), space:O(1) muaahhaa
+    cout << trade1 + k;
 }
 
 void solve2(int testNo)

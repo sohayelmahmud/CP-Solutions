@@ -73,36 +73,51 @@ const ll INF = 1e18;
 // ############ ---- Main Solve Function ---- ############
 void solve(int testNo)
 {
-    inin(n);
-    vll p(n * 2, 0);
-    f1(i, n)
+    inin2(n, m);
+    unsigned long long ans = 0;
+
+    ll check = 0;
+    f0(i, m - 1)
     {
-        cin >> p[i];
-    }
-    ll rem = n + 1;
-    f0(i, n - 1)
-    {
-        f0(j, n)
+        ans = ans << 1;
+        if (!(check & 1))
         {
-            inin(x);
-            if (j == n - 1)
-            {
-                p[rem] = x;
-                rem++;
-            }
+            ans |= 1;
+            check += 3;
         }
     }
-    p[0] = (((2 * n) * ((2 * n) + 1)) / 2) - sum_vec(p);
 
-    for (auto x : p)
+    f0(i, n)
     {
-        cout << x << " ";
+        if (!(i & 1))
+        {
+            for (int i = m - 1; i >= 0; i--)
+            {
+                cout << ((ans >> i) & 1) << " ";
+            }
+        }
+        else
+        {
+            for (int i = m - 1; i >= 0; i--)
+            {
+                cout << ((~ans >> i) & 1) << " ";
+            }
+        }
+        cout << "\n";
     }
 }
 
 void solve2(int testNo)
 {
-    // cout << "Case #" << testNo << ": ";
+    inin2(n, m);
+    f0(i, n)
+    {
+        f0(j, m)
+        {
+            ll val = ((i + 1) / 2 + (j + 1) / 2) % 2;
+            cout << val << " \n"[j == m - 1];
+        }
+    }
 }
 
 void solve3(int testNo)
@@ -120,8 +135,8 @@ int main()
     cin >> t;
     for (int testNo = 1; testNo <= t; testNo++)
     {
-        solve(testNo);
-        cout << endl;
+        solve2(testNo);
+        // cout << endl;
     }
 
     return 0;
