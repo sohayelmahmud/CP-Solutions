@@ -73,27 +73,12 @@ const ll INF = 1e18;
 // ############ ---- Main Solve Function ---- ############
 void solve(int testNo)
 {
-    inin2(n, c);
-    varr(a, n);
-    ll s = sum_vec(a);
-
-    ll max_sum = 0;
-    for (ll mask = 0; mask < (1 << n); mask++)
-    {
-        ll cur_sum = 0;
-        for (ll i = 0; i < n; i++)
-        {
-            if (mask & (1LL << i))
-            {
-                cur_sum += a[i];
-            }
-        }
-        if (cur_sum <= c)
-        {
-            max_sum = max(max_sum, cur_sum);
-        }
-    }
-    cout << s - max_sum;
+    ll n, a, b;
+    invr(n, a, b);
+    if ((n == a & a == b) || a + b + 2 <= n)
+        Yes;
+    else
+        No;
 }
 
 void solve2(int testNo)
@@ -117,7 +102,7 @@ int main()
     for (int testNo = 1; testNo <= t; testNo++)
     {
         solve(testNo);
-        cout << endl;
+        // cout << endl;
     }
 
     return 0;
